@@ -1,12 +1,12 @@
 import { LogBook } from "../domain/LogBook"
 import { ILogbookRepository } from "./ILogbookRepository"
 
-interface ICreateLogbookDto {
+export interface ICreateLogbookDto {
   userId: string
   name: string
 }
 
-interface ICreateLogbookResult {
+export interface ICreateLogbookResult {
   logbookId: string
 }
 
