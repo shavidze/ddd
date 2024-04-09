@@ -15,4 +15,16 @@ export class PrimsaLogbookRepository implements ILogbookRepository {
     })
     return true
   }
+
+  async find(id: string): Promise<LogBook | null> {
+    const result = await this._client.logbook.findUnique({
+      where: {
+        id: id,
+      },
+    })
+
+    if (!result) return result
+
+    return new LogBook(result.name, result.userId, result.id)
+  }
 }

@@ -8,4 +8,7 @@ export class InMemoryLogbookRepository implements ILogbookRepository {
     this._logbooks.push(logbook)
     return true
   }
+  async find(id: string): Promise<LogBook | null> {
+    return this._logbooks.find((x) => x.id === id) ?? null
+  }
 }
