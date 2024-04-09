@@ -23,6 +23,6 @@ export class GetLogbookUseCase implements IUseCase<IGetLogbookDto, LogBookDto> {
       throw new Error("not fount")
     }
 
-    return logbook
+    return LogBookDto.from(logbook)
   }
 }

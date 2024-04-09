@@ -19,7 +19,7 @@ export async function bootstrap(): Promise<void> {
   const getUseCase = new GetLogbookUseCase(prismaRepo)
   const getController = new GetLogBookController(getUseCase)
 
-  await ApiServer.run(9000, controllerm getController)
+  await ApiServer.run(9000, controller, getController)
 }
 
 bootstrap()
