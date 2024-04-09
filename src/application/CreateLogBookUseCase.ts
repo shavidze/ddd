@@ -25,7 +25,7 @@ export class CreateLogBookUseCase {
     }
 
     return {
-      logbookId: "",
+      logbookId: logbook.id,
     }
   }
 }
