@@ -29,6 +29,13 @@ export class CreateLogBookUseCase {
     input: ICreateLogbookDto
   ): Promise<ICreateLogbookResult> {
     const logbook = new LogBook(input.name, input.userId)
+
+    const result = await this._logbookRepo.save(logbook)
+
+    if (!result) {
+      throw new Error("Could not save logbook.")
+    }
+
     return {
       logbookId: "",
     }
