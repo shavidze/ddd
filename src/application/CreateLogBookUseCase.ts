@@ -1,4 +1,5 @@
-import { randomUUID } from "crypto"
+import { LogBook } from "../domain/LogBook"
+import { ILogbookRepository } from "./ILogbookRepository"
 
 interface ICreateLogbookDto {
   userId: string
@@ -7,19 +8,6 @@ interface ICreateLogbookDto {
 
 interface ICreateLogbookResult {
   logbookId: string
-}
-
-class LogBook {
-  public constructor(
-    public readonly name: string,
-    public readonly userId: string = randomUUID()
-  ) {}
-}
-
-// for DB use dependency inversion principle
-
-interface ILogbookRepository {
-  save(logbook: LogBook): Promise<boolean>
 }
 
 export class CreateLogBookUseCase {
